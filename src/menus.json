@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Home",
+    "subItems": [
+      {
+        "name": "child",
+        "subItems": [
+          {
+            "name": "child child",
+            "subItems": [{ "name": "child child child" }]
+          }
+        ]
+      },
+      { "name": "child2" }
+    ]
+  },
+  { "name": "News", "subItems": [{ "name": "child2" }] },
+  { "name": "Conctact" },
+  { "name": "About" }
+]
