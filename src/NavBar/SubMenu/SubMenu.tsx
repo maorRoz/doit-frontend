@@ -33,7 +33,7 @@ const SubMenuItem = ({ item }: { item: MenuItem }) => {
               open={Boolean(anchorEl)}
               anchorEl={anchorEl}
               placement='right-start'
-              onMouseEnter={() => setHoveringMenu(true)}
+              onMouseOver={() => setHoveringMenu(true)}
               onMouseLeave={handleMouseLeave}
             >
               <SubMenu items={[item?.subItems[0]]} />
