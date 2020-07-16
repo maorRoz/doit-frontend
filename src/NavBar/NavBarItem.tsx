@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useCallback } from 'react';
 import Popper from '@material-ui/core/Popper';
 import { MenuItem } from './types';
 import { SubMenu } from './SubMenu';
@@ -13,32 +13,33 @@ export const NavBarItem = ({ item }: NavBarItemProps) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [hoveringMenu, setHoveringMenu] = useState(false);
 
+  const handleMouseOver = useCallback((event) => {
+    setAnchorEl(event.currentTarget);
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    setHoveringMenu(false);
+    setAnchorEl(null);
+  }, []);
+
   return (
     <NavBarItemLayout
+      hovered={hoveringMenu}
       // @ts-expect-error
       ref={ref}
-      // @ts-expect-error
-      onMouseEnter={(event) => setAnchorEl(event.currentTarget)}
-      onMouseLeave={() =>
-        setTimeout(() => {
-          !hoveringMenu && setAnchorEl(null);
-        }, 100)
-      }
+      onMouseOver={handleMouseOver}
+      onMouseLeave={handleMouseLeave}
     >
       <div>{item.name}</div>
       {item.subItems && (
         <Popper
-          style={{ marginTop: '2px' }}
           open={Boolean(anchorEl)}
           anchorEl={anchorEl}
-          placement='bottom'
-          onMouseEnter={() => setHoveringMenu(true)}
-          onMouseLeave={() => {
-            setHoveringMenu(false);
-            setAnchorEl(null);
-          }}
+          placement='bottom-start'
+          onMouseOver={() => setHoveringMenu(true)}
+          onMouseLeave={handleMouseLeave}
         >
-          <SubMenu items={item.subItems} width={ref?.current?.clientWidth} />
+          <SubMenu items={item.subItems} />
         </Popper>
       )}
     </NavBarItemLayout>

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const NavBarLayout = styled.div`
   position: sticky;
@@ -15,21 +15,16 @@ export const NavBarHeader = styled.div`
   max-width: 1012px;
 `;
 
-export const NavBarItemLayout = styled.div`
+export const NavBarItemLayout = styled.div<{ hovered?: boolean }>`
   padding: 1em;
   width: fit-content;
   cursor: pointer;
   &:hover {
-    background-color: green;
+    background-color: #5a9c49;
   }
-`;
-
-export const SubMenuLayout = styled.div<{ width?: number }>`
-  box-sizing: content-box;
-  padding: 1em;
-  width: ${({ width }) => `${width}px` || 'fit-content'};
-  cursor: pointer;
-  font-weight: bold;
-  background-color: #24292e;
-  color: white;
+  ${({ hovered }) =>
+    hovered &&
+    css`
+      background-color: #5a9c49;
+    `}
 `;

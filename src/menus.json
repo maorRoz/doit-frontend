@@ -3,18 +3,35 @@
     "name": "Home",
     "subItems": [
       {
-        "name": "child",
+        "name": "option 1->[2,4]->[3,5]",
         "subItems": [
           {
-            "name": "child child",
-            "subItems": [{ "name": "child child child" }]
+            "name": "option 2->[3]",
+            "subItems": [{ "name": "option 3" }]
+          },
+          {
+            "name": "option 4->[5]",
+            "subItems": [{ "name": "option 5" }]
           }
         ]
       },
-      { "name": "child2" }
+      { "name": "option 6" },
+      {
+        "name": "option 7->[8]",
+        "subItems": [
+          {
+            "name": "option 8"
+          }
+        ]
+      }
     ]
   },
-  { "name": "News", "subItems": [{ "name": "child2" }] },
-  { "name": "Conctact" },
+  {
+    "name": "News",
+    "subItems": [
+      { "name": "option 1->[2]", "subItems": [{ "name": "option 2" }] }
+    ]
+  },
+  { "name": "Conctact", "subItems": [{ "name": "option 1" }] },
   { "name": "About" }
 ]
