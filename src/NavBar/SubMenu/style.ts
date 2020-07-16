@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import ChevronRight from '@material-ui/icons/ChevronRight';
 
 export const SubMenuLayout = styled.div`
   box-sizing: content-box;
