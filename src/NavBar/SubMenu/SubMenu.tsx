@@ -29,7 +29,6 @@ const SubMenuItem = ({ item }: { item: MenuItem }) => {
           <>
             <ChevronRight />
             <Popper
-              style={{ marginTop: '2px' }}
               open={Boolean(anchorEl)}
               anchorEl={anchorEl}
               placement='right-start'
