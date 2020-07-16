@@ -1,7 +1,8 @@
 import React, { useState, useCallback } from 'react';
 import Popper from '@material-ui/core/Popper';
+import ChevronRight from '@material-ui/icons/ChevronRight';
 import { MenuItem } from '../types';
-import { SubMenuLayout, SubMenuItemLayout, RightArrow } from './style';
+import { SubMenuLayout, SubMenuItemLayout } from './style';
 
 const SubMenuItem = ({ item }: { item: MenuItem }) => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -24,19 +25,20 @@ const SubMenuItem = ({ item }: { item: MenuItem }) => {
         onMouseLeave={handleMouseLeave}
       >
         <div>{item.name}</div>
-        <RightArrow show={Boolean(item.subItems)} />
-
         {item.subItems && (
-          <Popper
-            style={{ marginTop: '2px' }}
-            open={Boolean(anchorEl)}
-            anchorEl={anchorEl}
-            placement='right-start'
-            onMouseEnter={() => setHoveringMenu(true)}
-            onMouseLeave={handleMouseLeave}
-          >
-            <SubMenu items={[item?.subItems[0]]} />
-          </Popper>
+          <>
+            <ChevronRight />
+            <Popper
+              style={{ marginTop: '2px' }}
+              open={Boolean(anchorEl)}
+              anchorEl={anchorEl}
+              placement='right-start'
+              onMouseEnter={() => setHoveringMenu(true)}
+              onMouseLeave={handleMouseLeave}
+            >
+              <SubMenu items={[item?.subItems[0]]} />
+            </Popper>
+          </>
         )}
       </SubMenuItemLayout>
     </>

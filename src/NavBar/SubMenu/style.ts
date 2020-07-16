@@ -28,13 +28,7 @@ export const SubMenuItemLayout = styled.div<{ hovered?: boolean }>`
     css`
       background-color: #24292e;
     `}
-  padding: 0.5em 0 0.5em 0.3em;
-`;
 
-export const RightArrow = styled(ChevronRight)<{ show: boolean }>`
-  ${({ show }) =>
-    !show &&
-    css`
-      display: none !important;
-    `}
+  height: 1.5em;
+  padding: 0.5em 0 0.5em 0.3em;
 `;
