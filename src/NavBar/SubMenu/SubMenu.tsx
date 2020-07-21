@@ -35,7 +35,7 @@ const SubMenuItem = ({ item }: { item: MenuItem }) => {
               onMouseOver={() => setHoveringMenu(true)}
               onMouseLeave={handleMouseLeave}
             >
-              <SubMenu items={[item?.subItems[0]]} />
+              <SubMenu items={item.subItems} />
             </Popper>
           </>
         )}
